@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongofTrojan", "Assembly-CSharp.csproj", "{409D1C72-9178-B78A-C121-40EFAC1837A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongofTrojan", "Assembly-CSharp-Editor.csproj", "{72934B17-F6AF-2149-FD2F-E5044B8D2180}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{409D1C72-9178-B78A-C121-40EFAC1837A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409D1C72-9178-B78A-C121-40EFAC1837A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409D1C72-9178-B78A-C121-40EFAC1837A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409D1C72-9178-B78A-C121-40EFAC1837A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72934B17-F6AF-2149-FD2F-E5044B8D2180}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72934B17-F6AF-2149-FD2F-E5044B8D2180}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72934B17-F6AF-2149-FD2F-E5044B8D2180}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72934B17-F6AF-2149-FD2F-E5044B8D2180}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
