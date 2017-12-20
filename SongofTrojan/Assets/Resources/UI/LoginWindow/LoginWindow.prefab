@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224753312781581802}
-  - component: {fileID: 114069840387560922}
   - component: {fileID: 223432424240752292}
   - component: {fileID: 114525216973653490}
+  - component: {fileID: 114994338112794810}
   m_Layer: 5
   m_Name: LoginWindow
   m_TagString: Untagged
@@ -75,22 +75,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114069840387560922
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1251732736075942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74837f4b3ccec7c46bc9197058c73af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_canvas: {fileID: 0}
-  m_objectList: []
-  m_UIType: 2
-  m_bgMask: {fileID: 1581700448350476}
-  m_uiRoot: {fileID: 1566913250003298}
 --- !u!114 &114525216973653490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +91,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114994338112794810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1251732736075942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1961690c45cda3b4c8a27ee024ecdad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_canvas: {fileID: 0}
+  m_objectList: []
+  m_UIType: 0
+  m_bgMask: {fileID: 0}
+  m_uiRoot: {fileID: 0}
 --- !u!212 &212485769491557788
 SpriteRenderer:
   m_ObjectHideFlags: 1

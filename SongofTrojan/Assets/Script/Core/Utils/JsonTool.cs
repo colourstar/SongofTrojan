@@ -81,7 +81,7 @@ public class JsonTool
 
             foreach (string key in listData.Keys)
             {
-                datas.Add(key, Json2Object<T>(listData[key].ToString()));
+				datas.Add (key, Json2Object<T> (listData [key].ToString ()));
             }
         }
         return datas;

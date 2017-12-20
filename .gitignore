@@ -1,3 +1,4 @@
 # Ignore libraries folder
 /SongofTrojan/Library/
 /SongofTrojan/obj/
+/SongofTrojan/Temp/

@@ -121,7 +121,6 @@
      <Compile Include="Assets\Script\Core\Lua\ToLua\Editor\ToLuaTree.cs" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaEventDispatcher.txt" />
      <None Include="Assets\Script\Core\Editor\res\ScriptTemplates\87-C# Script-NewGameStatusScript.cs.txt" />
-     <None Include="Assets\Resources\Lua\UI\LuaLoginWindow.txt" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\FindTexture获取.txt" />
      <None Include="Assets\Script\Core\Editor\res\LuaLib\luaJson.txt" />
      <None Include="Assets\Script\Core\Editor\res\EditorWindow\LoadIcon获取.txt" />
@@ -203,7 +202,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Debugger">
- <HintPath>K:/01 Project/01 Game/11 SongofTrojan/SongofTrojan/Assets/Script/Core/Lua/ToLua/Plugins/Debugger.dll</HintPath>
+ <HintPath>K:/01 Project/01 Game/12 SongofTrojan/SongofTrojan/Assets/Script/Core/Lua/ToLua/Plugins/Debugger.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
