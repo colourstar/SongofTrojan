@@ -14,6 +14,8 @@ public class LoginWindow : UIWindowBase
 		List<object> testlist = akConfigData ["Item"] as List<object>;
 		Dictionary<string,object> testdic = testlist[0] as Dictionary<string,object>;
 		Debug.Log (testdic["ID"]);
+
+		AddOnClickListener ("btlogin", OnLoginClicked);
     }
 
     //请在这里写UI的更新逻辑，当该UI监听的事件触发时，该函数会被调用
@@ -43,4 +45,9 @@ public class LoginWindow : UIWindowBase
 
         yield return new WaitForEndOfFrame();
     }
+		
+	public void OnLoginClicked(IInputEventBase e)
+	{
+		Debug.Log ("OnLoginClicked");
+	}
 }
