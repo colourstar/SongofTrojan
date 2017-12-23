@@ -5,97 +5,36 @@ using FrameWork;
 using System.Text;
 using System;
 using LuaInterface;
+using System.IO;
 
 /// <summary>
-/// excel配置管理,读取config.json文件
+/// excel配置管理,读取streaming assetspath/Config/Config.bin文件
 /// </summary>
 public static class TabtoyConfigManager
 {
-	static Dictionary<string,object> s_excelConfig = new Dictionary<string,object>();
-	public const string c_directoryName = "Config";
-	public const string c_expandName    = "json";
+	public static table.Config m_tabtoyConfig = new table.Config();
 
-	public static bool GetIsExistConfig(string ConfigName)
+	public static void Init()
 	{
-		string dataJson = "";
+		var stream = new FileStream (Application.streamingAssetsPath + "/Config/Config.bin", FileMode.Open);
+		stream.Position = 0;
 
-		#if UNITY_EDITOR
-		if(!Application.isPlaying)
-		{
-			dataJson = ResourceIOTool.ReadStringByResource(
-				PathTool.GetRelativelyPath(c_directoryName,
-					ConfigName,
-					c_expandName));
-		}
-		else
-		{
-			dataJson = ResourceManager.ReadTextFile(ConfigName);
-		}
+		var reader = new tabtoy.DataReader(stream);
 
-		#else
-		dataJson = ResourceManager.ReadTextFile(ConfigName);
-		#endif
+		if ( !reader.ReadHeader(  ) )
+		{
+			Console.WriteLine("combine file crack!");
+			return;
+		}
+			
+		table.Config.Deserialize(m_tabtoyConfig, reader);
+		var directFetch = m_tabtoyConfig.Item[2];
 
-		if (dataJson == "")
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+
+		m_tabtoyConfig.TableLogger.AddTarget( new tabtoy.DebuggerTarget() );
+
+		var nullFetchOutLog = m_tabtoyConfig.GetItemByID( 1 );
 	}
-
-	public static object GetData(string ConfigName)
-	{
-		if (s_excelConfig.ContainsKey(ConfigName))
-		{
-			return s_excelConfig[ConfigName];
-		}
-
-		string dataJson = "";
-
-		#if UNITY_EDITOR
-		if (!Application.isPlaying)
-		{
-			dataJson = ResourceIOTool.ReadStringByResource(
-				PathTool.GetRelativelyPath(c_directoryName,
-					ConfigName,
-					c_expandName));
-		}
-		else
-		{
-			dataJson = ResourceManager.ReadTextFile(ConfigName);
-		}
-		#else
-		dataJson = ResourceManager.ReadTextFile(ConfigName);
-		#endif
-
-		if (dataJson == "")
-		{
-			throw new Exception("ConfigManager GetData not find " + ConfigName);
-		}
-		else
-		{
-			Dictionary<string,object> datas = new Dictionary<string,object>();
-			if (!string.IsNullOrEmpty(dataJson))
-			{
-				Dictionary<string, object> listData = Json.Deserialize(dataJson) as Dictionary<string, object>;
-				if (listData == null)
-				{
-					return datas;
-				}
-
-				foreach (string key in listData.Keys)
-				{
-					datas.Add (key, (listData [key]));
-				}
-			}
-
-			s_excelConfig.Add(ConfigName, datas);
-			return datas;
-		}
-	}
-	
+		
 }
 

@@ -1,17 +1,23 @@
-﻿using UnityEngine;
+﻿/// <summary>
+/// Logic main.
+/// 主逻辑模块
+/// </summary>
+
+using UnityEngine;
 using System.Collections;
 
-public class LogicMain
+public static class LogicMain
 {
+	private static StoryManager m_StoryManager = new StoryManager();
 	// Init Progress
-	void Init()
+	public static void Init()
 	{
-		
+		m_StoryManager.Init ();
 	}
 
 	// Update is called once per logic frame
-	void Update ()
+	public static void Update ()
 	{
-		
+		m_StoryManager.Update ();
 	}
 }

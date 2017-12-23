@@ -60,6 +60,9 @@
     <Compile Include="Assets\Script\Core\Audio\AudioManager.cs" />
     <Compile Include="Assets\Script\Core\Config\ConfigManager.cs" />
     <Compile Include="Assets\Script\Core\Config\ConfigTable.cs" />
+    <Compile Include="Assets\Script\Core\Config\DataReader.cs" />
+    <Compile Include="Assets\Script\Core\Config\Logger.cs" />
+    <Compile Include="Assets\Script\Core\Config\TabtoyConfigDef.cs" />
     <Compile Include="Assets\Script\Core\Config\TabtoyConfigManager.cs" />
     <Compile Include="Assets\Script\Core\Data\DataGenerateManager.cs" />
     <Compile Include="Assets\Script\Core\Data\DataManager.cs" />
@@ -195,6 +198,12 @@
     <Compile Include="Assets\Script\Core\Utils\ResourceIOTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
     <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
+    <Compile Include="Assets\Script\Game\Logic\LogicMain.cs" />
+    <Compile Include="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" />
+    <Compile Include="Assets\Script\Game\Logic\Story\Condition\ConditionBase.cs" />
+    <Compile Include="Assets\Script\Game\Logic\Story\Story.cs" />
+    <Compile Include="Assets\Script\Game\Logic\Story\StoryManager.cs" />
+    <Compile Include="Assets\Script\Game\Status\GameStatus.cs" />
     <Compile Include="Assets\Script\Game\Status\StartStatus.cs" />
     <Compile Include="Assets\Script\Game\UI\StartWindow\StartWindow.cs" />
     <None Include="Assets\Script\Core\Editor\res\LuaLib\LuaEventDispatcher.txt" />
@@ -246,7 +255,6 @@
     <Reference Include="Debugger">
       <HintPath>K:\01 Project\01 Game\12 SongofTrojan\SongofTrojan\Assets\Script\Core\Lua\ToLua\Plugins\Debugger.dll</HintPath>
     </Reference>
-    <Compile Include="Assets\Script\Game\Logic\LogicMain.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -256,7 +264,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup>
-    <Folder Include="Assets\Script\Game\Logic\" />
-  </ItemGroup>
 </Project>

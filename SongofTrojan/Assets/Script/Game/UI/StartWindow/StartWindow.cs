@@ -43,5 +43,7 @@ public class StartWindow : UIWindowBase
 	public void OnStartClick(InputUIOnClickEvent e)
 	{
 		Debug.Log ("1");
+
+		ApplicationStatusManager.EnterStatus<GameStatus>();
 	}
 }
