@@ -2,11 +2,11 @@
 using System.Collections;
 
 
-public class LoginStatus : IApplicationStatus
+public class StartStatus : IApplicationStatus
 {
 	public override void OnEnterStatus()
 	{
-		OpenUI<LoginWindow> ();
+		OpenUI<StartWindow> ();
 	}
 }
 

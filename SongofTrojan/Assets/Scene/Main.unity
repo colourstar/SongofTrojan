@@ -340,5 +340,5 @@ MonoBehaviour:
   m_AppMode: 0
   m_useAssetsBundle: 0
   m_quickLunch: 1
-  m_Status: LoginStatus
+  m_Status: StartStatus
   m_globalLogic: []
