@@ -28,12 +28,10 @@ public static class TabtoyConfigManager
 		}
 			
 		table.Config.Deserialize(m_tabtoyConfig, reader);
-		var directFetch = m_tabtoyConfig.Item[2];
+		var directFetch = m_tabtoyConfig.Story[0];
 
 
 		m_tabtoyConfig.TableLogger.AddTarget( new tabtoy.DebuggerTarget() );
-
-		var nullFetchOutLog = m_tabtoyConfig.GetItemByID( 1 );
 	}
 		
 }

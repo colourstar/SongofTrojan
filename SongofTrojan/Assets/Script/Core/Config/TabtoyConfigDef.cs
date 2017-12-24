@@ -17,24 +17,61 @@ namespace table
 	
 		
 		/// <summary> 
-		/// Item
+		/// Action
 		/// </summary>
-		public List<ItemDefine> Item = new List<ItemDefine>(); 
+		public List<ActionDefine> Action = new List<ActionDefine>(); 
+		
+		/// <summary> 
+		/// Story
+		/// </summary>
+		public List<StoryDefine> Story = new List<StoryDefine>(); 
 	
 	
 		#region Index code
-	 	Dictionary<int, ItemDefine> _ItemByID = new Dictionary<int, ItemDefine>();
-        public ItemDefine GetItemByID(int ID, ItemDefine def = default(ItemDefine))
+	 	Dictionary<int, ActionDefine> _ActionByID = new Dictionary<int, ActionDefine>();
+        public ActionDefine GetActionByID(int ID, ActionDefine def = default(ActionDefine))
         {
-            ItemDefine ret;
-            if ( _ItemByID.TryGetValue( ID, out ret ) )
+            ActionDefine ret;
+            if ( _ActionByID.TryGetValue( ID, out ret ) )
             {
                 return ret;
             }
 			
-			if ( def == default(ItemDefine) )
+			if ( def == default(ActionDefine) )
 			{
-				TableLogger.ErrorLine("GetItemByID failed, ID: {0}", ID);
+				TableLogger.ErrorLine("GetActionByID failed, ID: {0}", ID);
+			}
+
+            return def;
+        }
+		Dictionary<string, ActionDefine> _ActionByName = new Dictionary<string, ActionDefine>();
+        public ActionDefine GetActionByName(string Name, ActionDefine def = default(ActionDefine))
+        {
+            ActionDefine ret;
+            if ( _ActionByName.TryGetValue( Name, out ret ) )
+            {
+                return ret;
+            }
+			
+			if ( def == default(ActionDefine) )
+			{
+				TableLogger.ErrorLine("GetActionByName failed, Name: {0}", Name);
+			}
+
+            return def;
+        }
+		Dictionary<int, StoryDefine> _StoryByID = new Dictionary<int, StoryDefine>();
+        public StoryDefine GetStoryByID(int ID, StoryDefine def = default(StoryDefine))
+        {
+            StoryDefine ret;
+            if ( _StoryByID.TryGetValue( ID, out ret ) )
+            {
+                return ret;
+            }
+			
+			if ( def == default(StoryDefine) )
+			{
+				TableLogger.ErrorLine("GetStoryByID failed, ID: {0}", ID);
 			}
 
             return def;
@@ -66,37 +103,53 @@ namespace table
                 { 
                 	case 0xa0000:
                 	{
-						ins.Item.Add( reader.ReadStruct<ItemDefine>(ItemDefineDeserializeHandler) );
+						ins.Action.Add( reader.ReadStruct<ActionDefine>(ActionDefineDeserializeHandler) );
+                	}
+                	break; 
+                	case 0xa0001:
+                	{
+						ins.Story.Add( reader.ReadStruct<StoryDefine>(StoryDefineDeserializeHandler) );
                 	}
                 	break; 
                 }
              }
 
 			
-			// Build Item Index
-			for( int i = 0;i< ins.Item.Count;i++)
+			// Build Action Index
+			for( int i = 0;i< ins.Action.Count;i++)
 			{
-				var element = ins.Item[i];
+				var element = ins.Action[i];
 				
-				ins._ItemByID.Add(element.ID, element);
+				ins._ActionByID.Add(element.ID, element);
+				
+				ins._ActionByName.Add(element.Name, element);
+				
+			}
+			
+			// Build Story Index
+			for( int i = 0;i< ins.Story.Count;i++)
+			{
+				var element = ins.Story[i];
+				
+				ins._StoryByID.Add(element.ID, element);
 				
 			}
 			
 		}
-		static tabtoy.DeserializeHandler<ItemDefine> _ItemDefineDeserializeHandler;
-		static tabtoy.DeserializeHandler<ItemDefine> ItemDefineDeserializeHandler
+		static tabtoy.DeserializeHandler<ActionDefine> _ActionDefineDeserializeHandler;
+		static tabtoy.DeserializeHandler<ActionDefine> ActionDefineDeserializeHandler
 		{
 			get
 			{
-				if (_ItemDefineDeserializeHandler == null )
+				if (_ActionDefineDeserializeHandler == null )
 				{
-					_ItemDefineDeserializeHandler = new tabtoy.DeserializeHandler<ItemDefine>(Deserialize);
+					_ActionDefineDeserializeHandler = new tabtoy.DeserializeHandler<ActionDefine>(Deserialize);
 				}
 
-				return _ItemDefineDeserializeHandler;
+				return _ActionDefineDeserializeHandler;
 			}
 		}
-		public static void Deserialize( ItemDefine ins, tabtoy.DataReader reader )
+		public static void Deserialize( ActionDefine ins, tabtoy.DataReader reader )
 		{
  			int tag = -1;
             while ( -1 != (tag = reader.ReadTag()))
@@ -113,14 +166,89 @@ namespace table
 						ins.Name = reader.ReadString();
                 	}
                 	break; 
-                	case 0x10002:
+                	case 0x60002:
                 	{
-						ins.UpgradeCost = reader.ReadInt32();
+						ins.ScriptName = reader.ReadString();
                 	}
                 	break; 
-                	case 0x10003:
+                }
+             }
+
+			
+		}
+		static tabtoy.DeserializeHandler<StoryDefine> _StoryDefineDeserializeHandler;
+		static tabtoy.DeserializeHandler<StoryDefine> StoryDefineDeserializeHandler
+		{
+			get
+			{
+				if (_StoryDefineDeserializeHandler == null )
+				{
+					_StoryDefineDeserializeHandler = new tabtoy.DeserializeHandler<StoryDefine>(Deserialize);
+				}
+
+				return _StoryDefineDeserializeHandler;
+			}
+		}
+		public static void Deserialize( StoryDefine ins, tabtoy.DataReader reader )
+		{
+ 			int tag = -1;
+            while ( -1 != (tag = reader.ReadTag()))
+            {
+                switch (tag)
+                { 
+                	case 0x10000:
                 	{
-						ins.GenPetID = reader.ReadInt32();
+						ins.ID = reader.ReadInt32();
+                	}
+                	break; 
+                	case 0x60001:
+                	{
+						ins.Name = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60002:
+                	{
+						ins.ActionType = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60003:
+                	{
+						ins.Args1 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60004:
+                	{
+						ins.Args2 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60005:
+                	{
+						ins.Args3 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60006:
+                	{
+						ins.Args4 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60007:
+                	{
+						ins.Args5 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60008:
+                	{
+						ins.Args6 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60009:
+                	{
+						ins.Args7 = reader.ReadString();
+                	}
+                	break; 
+                	case 0x6000a:
+                	{
+						ins.Args8 = reader.ReadString();
                 	}
                 	break; 
                 }
@@ -133,9 +261,9 @@ namespace table
 
 	} 
 
-	// Defined in table: Item
+	// Defined in table: Action
 	
-	public partial class ItemDefine
+	public partial class ActionDefine
 	{
 	
 		
@@ -145,19 +273,79 @@ namespace table
 		public int ID = 0; 
 		
 		/// <summary> 
-		/// 名称
+		/// 动作名称
 		/// </summary>
 		public string Name = ""; 
 		
 		/// <summary> 
-		/// 进阶消耗
+		/// 脚本名称
 		/// </summary>
-		public int UpgradeCost = 0; 
+		public string ScriptName = ""; 
+	
+	
+
+	} 
+
+	// Defined in table: Story
+	
+	public partial class StoryDefine
+	{
+	
 		
 		/// <summary> 
-		/// 使用后生成的宠物
+		/// 唯一ID
 		/// </summary>
-		public int GenPetID = 0; 
+		public int ID = 0; 
+		
+		/// <summary> 
+		/// 剧情名称
+		/// </summary>
+		public string Name = ""; 
+		
+		/// <summary> 
+		/// 动作类型
+		/// </summary>
+		public string ActionType = ""; 
+		
+		/// <summary> 
+		/// 参数1
+		/// </summary>
+		public string Args1 = ""; 
+		
+		/// <summary> 
+		/// 参数2
+		/// </summary>
+		public string Args2 = ""; 
+		
+		/// <summary> 
+		/// 参数3
+		/// </summary>
+		public string Args3 = ""; 
+		
+		/// <summary> 
+		/// 参数4
+		/// </summary>
+		public string Args4 = ""; 
+		
+		/// <summary> 
+		/// 参数5
+		/// </summary>
+		public string Args5 = ""; 
+		
+		/// <summary> 
+		/// 参数6
+		/// </summary>
+		public string Args6 = ""; 
+		
+		/// <summary> 
+		/// 参数7
+		/// </summary>
+		public string Args7 = ""; 
+		
+		/// <summary> 
+		/// 参数8
+		/// </summary>
+		public string Args8 = ""; 
 	
 	
 
