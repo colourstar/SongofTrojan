@@ -5,6 +5,7 @@ tabtoy.exe ^
 --lan=zh_cn ^
 Globals.xlsx ^
 Action.xlsx ^
-Story.xlsx
+Story.xlsx ^
+Role.xlsx
 
 pause
