@@ -1,13 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-public class StartWindow : UIWindowBase 
+public class DialogWindow : UIWindowBase 
 {
 
     //UI的初始化请放在这里
     public override void OnOpen()
     {
-		AddOnClickListener ("btlogin", OnStartClick);
 
     }
 
@@ -38,10 +37,4 @@ public class StartWindow : UIWindowBase
 
         yield return new WaitForEndOfFrame();
     }
-
-	// 按钮消息接受
-	public void OnStartClick(InputUIOnClickEvent e)
-	{
-		ApplicationStatusManager.EnterStatus<GameStatus>();
-	}
 }

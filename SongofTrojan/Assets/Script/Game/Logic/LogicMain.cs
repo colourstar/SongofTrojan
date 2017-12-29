@@ -15,6 +15,11 @@ public static class LogicMain
 		m_StoryManager.Init ();
 	}
 
+    public static void Start()
+    {
+        m_StoryManager.Start();
+    }
+
 	// Update is called once per logic frame
 	public static void Update ()
 	{

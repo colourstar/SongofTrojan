@@ -33,6 +33,10 @@ public static class TabtoyConfigManager
 
 		m_tabtoyConfig.TableLogger.AddTarget( new tabtoy.DebuggerTarget() );
 	}
-		
+
+	public static table.Config GetConfig()
+	{
+		return m_tabtoyConfig;
+	}
 }
 

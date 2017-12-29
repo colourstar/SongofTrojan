@@ -25,6 +25,11 @@ namespace table
 		/// Story
 		/// </summary>
 		public List<StoryDefine> Story = new List<StoryDefine>(); 
+		
+		/// <summary> 
+		/// Role
+		/// </summary>
+		public List<RoleDefine> Role = new List<RoleDefine>(); 
 	
 	
 		#region Index code
@@ -76,6 +81,22 @@ namespace table
 
             return def;
         }
+		Dictionary<int, RoleDefine> _RoleByID = new Dictionary<int, RoleDefine>();
+        public RoleDefine GetRoleByID(int ID, RoleDefine def = default(RoleDefine))
+        {
+            RoleDefine ret;
+            if ( _RoleByID.TryGetValue( ID, out ret ) )
+            {
+                return ret;
+            }
+			
+			if ( def == default(RoleDefine) )
+			{
+				TableLogger.ErrorLine("GetRoleByID failed, ID: {0}", ID);
+			}
+
+            return def;
+        }
 		
 	
 		#endregion
@@ -111,6 +132,11 @@ namespace table
 						ins.Story.Add( reader.ReadStruct<StoryDefine>(StoryDefineDeserializeHandler) );
                 	}
                 	break; 
+                	case 0xa0002:
+                	{
+						ins.Role.Add( reader.ReadStruct<RoleDefine>(RoleDefineDeserializeHandler) );
+                	}
+                	break; 
                 }
              }
 
@@ -132,6 +158,15 @@ namespace table
 				var element = ins.Story[i];
 				
 				ins._StoryByID.Add(element.ID, element);
+				
+			}
+			
+			// Build Role Index
+			for( int i = 0;i< ins.Role.Count;i++)
+			{
+				var element = ins.Role[i];
+				
+				ins._RoleByID.Add(element.ID, element);
 				
 			}
 			
@@ -251,6 +286,51 @@ namespace table
 						ins.Args8 = reader.ReadString();
                 	}
                 	break; 
+                	case 0x7000b:
+                	{
+						ins.InitOpen = reader.ReadBool();
+                	}
+                	break; 
+                }
+             }
+
+			
+		}
+		static tabtoy.DeserializeHandler<RoleDefine> _RoleDefineDeserializeHandler;
+		static tabtoy.DeserializeHandler<RoleDefine> RoleDefineDeserializeHandler
+		{
+			get
+			{
+				if (_RoleDefineDeserializeHandler == null )
+				{
+					_RoleDefineDeserializeHandler = new tabtoy.DeserializeHandler<RoleDefine>(Deserialize);
+				}
+
+				return _RoleDefineDeserializeHandler;
+			}
+		}
+		public static void Deserialize( RoleDefine ins, tabtoy.DataReader reader )
+		{
+ 			int tag = -1;
+            while ( -1 != (tag = reader.ReadTag()))
+            {
+                switch (tag)
+                { 
+                	case 0x10000:
+                	{
+						ins.ID = reader.ReadInt32();
+                	}
+                	break; 
+                	case 0x60001:
+                	{
+						ins.Name = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60002:
+                	{
+						ins.NormalDrawing = reader.ReadString();
+                	}
+                	break; 
                 }
              }
 
@@ -346,6 +426,36 @@ namespace table
 		/// 参数8
 		/// </summary>
 		public string Args8 = ""; 
+		
+		/// <summary> 
+		/// 开场启动
+		/// </summary>
+		public bool InitOpen = false; 
+	
+	
+
+	} 
+
+	// Defined in table: Role
+	
+	public partial class RoleDefine
+	{
+	
+		
+		/// <summary> 
+		/// 唯一ID
+		/// </summary>
+		public int ID = 0; 
+		
+		/// <summary> 
+		/// 人物名称
+		/// </summary>
+		public string Name = ""; 
+		
+		/// <summary> 
+		/// 普通立绘
+		/// </summary>
+		public string NormalDrawing = ""; 
 	
 	
 

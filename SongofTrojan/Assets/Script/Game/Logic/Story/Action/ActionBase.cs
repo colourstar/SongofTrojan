@@ -11,8 +11,17 @@ using System.Collections.Generic;
 
 public class ActionBase
 {
+	public enum ActionState
+	{
+		AS_Waiting = -1,
+		AS_Processing = 0,
+		AS_End = 1,
+	}
+
+	public ActionState m_eState = ActionState.AS_Waiting;
+
 	// Use this for initialization
-	public virtual void Init ()
+	public virtual void Init (table.StoryDefine kStruct)
 	{
 
 	}
@@ -27,6 +36,21 @@ public class ActionBase
 	public virtual void Update ()
 	{
 
+	}
+
+	public void SetState(ActionState eState)
+	{
+		m_eState = eState;
+	}
+
+	public ActionState GetState()
+	{
+		return m_eState;
+	}
+
+	public void End()
+	{
+		m_eState = ActionState.AS_End;
 	}
 }
 

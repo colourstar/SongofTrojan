@@ -11,7 +11,11 @@ public class GameStatus : IApplicationStatus
 {
 	public override void OnEnterStatus()
 	{
+		// 初始化Logic的配置
 		LogicMain.Init ();
+
+        // 开始逻辑
+        LogicMain.Start ();
 	}
 
 	public override void OnUpdate()
@@ -19,4 +23,3 @@ public class GameStatus : IApplicationStatus
 		LogicMain.Update ();
 	}
 }
-
