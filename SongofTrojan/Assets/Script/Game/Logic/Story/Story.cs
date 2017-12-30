@@ -129,4 +129,14 @@ public class Story
 	{
 		return m_isallactionend;
 	}
+
+    public ActionBase GetCurrentAction()
+    {
+        if (m_curactionidx < 0 || m_curactionidx >= m_ActionList.Count)
+        {
+            return null;
+        }
+
+        return m_ActionList[m_curactionidx];
+    }
 }

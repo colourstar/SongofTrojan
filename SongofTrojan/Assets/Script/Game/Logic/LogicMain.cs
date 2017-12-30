@@ -8,7 +8,7 @@ using System.Collections;
 
 public static class LogicMain
 {
-	private static StoryManager m_StoryManager = new StoryManager();
+	public static StoryManager m_StoryManager = new StoryManager();
 	// Init Progress
 	public static void Init()
 	{

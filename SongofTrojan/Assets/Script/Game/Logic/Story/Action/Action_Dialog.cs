@@ -22,6 +22,7 @@ public class Action_Dialog : ActionBase
 	public override void Start ()
 	{
         Debug.Log ("[Action_Dialog] : Start : " + m_dialogcontent);
+        ApplicationStatusManager.GetStatus<GameStatus>().CloseUI<DialogWindow>();
         ApplicationStatusManager.GetStatus<GameStatus>().OpenUI<DialogWindow>();
         End();
 	}
@@ -31,4 +32,10 @@ public class Action_Dialog : ActionBase
 	{
         
 	}
+
+    public void OnDialogEnd()
+    {
+        End();
+    }
+
 }

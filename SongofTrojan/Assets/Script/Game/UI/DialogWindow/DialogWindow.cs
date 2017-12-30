@@ -7,6 +7,7 @@ public class DialogWindow : UIWindowBase
     //UI的初始化请放在这里
     public override void OnOpen()
     {
+        AddOnClickListener ("btRecvClick", OnRecvClick);
 
     }
 
@@ -37,4 +38,18 @@ public class DialogWindow : UIWindowBase
 
         yield return new WaitForEndOfFrame();
     }
+
+    // 窗口刷新消息
+    public void OnRefreshContent(string content,int iRoleID)
+    {
+        
+    }
+
+    // 按钮消息接受
+    public void OnRecvClick(InputUIOnClickEvent e)
+    {
+        Debug.Log("Dialog Window On Clicked");
+    }
+
+
 }

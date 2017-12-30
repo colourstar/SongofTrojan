@@ -113,5 +113,10 @@ public class StoryManager
 
 		m_currentstory.Start();
 	}
+
+    public Story GetCurrentStory()
+    {
+        return m_currentstory;
+    }
 }
 
