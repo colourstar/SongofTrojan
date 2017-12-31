@@ -42,7 +42,10 @@ public class DialogWindow : UIWindowBase
     // 窗口刷新消息
     public void OnRefreshContent(string content,int iRoleID)
     {
+		table.Config kConfig = TabtoyConfigManager.GetConfig();
+		table.RoleDefine roleconfig = kConfig.GetRoleByID (iRoleID);
 		GetText ("Text").text = content;
+		GetImage ("roleback").sprite = Resources.Load (roleconfig.NormalDrawing,typeof(Sprite)) as Sprite;
     }
 
     // 按钮消息接受

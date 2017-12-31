@@ -294,6 +294,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224768566694354620, guid: 542c83fb52ec0fd4188fec5333200b01,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224733140036467230, guid: 542c83fb52ec0fd4188fec5333200b01,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224608170623681096, guid: 542c83fb52ec0fd4188fec5333200b01,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224002848024488976, guid: 542c83fb52ec0fd4188fec5333200b01,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 542c83fb52ec0fd4188fec5333200b01, type: 2}
   m_IsPrefabParent: 0

@@ -2,12 +2,12 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs">
     <Files>
-      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="43" Column="61" />
-      <File FileName="Assets\Script\Game\UI\StartWindow\StartWindow.cs" Line="42" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" Line="22" Column="31" />
-      <File FileName="Assets\Script\Core\Application\IApplicationStatus.cs" Line="12" Column="42" />
-      <File FileName="Assets\Script\Core\UI\Model\UIWindowBase.cs" Line="6" Column="1" />
-      <File FileName="Assets\Script\Core\UI\Control\UIManager.cs" Line="36" Column="25" />
+      <File FileName="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" Line="20" Column="45" />
+      <File FileName="Assets\Script\Game\UI\StartWindow\StartWindow.cs" Line="46" Column="54" />
+      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="42" Column="14" />
+      <File FileName="Assets\Script\Core\UI\Model\UIBase.cs" Line="231" Column="16" />
+      <File FileName="Assets\Script\Core\ResourceLoad\ResourceManager.cs" Line="71" Column="23" />
+      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="31" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
