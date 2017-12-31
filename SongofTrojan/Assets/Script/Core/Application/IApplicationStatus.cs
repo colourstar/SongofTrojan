@@ -28,7 +28,7 @@ public abstract class IApplicationStatus
     {
         UIWindowBase ui = UIManager.GetUI<T>();
         m_uiList.Remove(ui);
-        UIManager.CloseUIWindow(ui);
+		UIManager.CloseUIWindow(ui,false);
     }
 
     public void CloseAllUI()

@@ -22,20 +22,20 @@ public class Action_Dialog : ActionBase
 	public override void Start ()
 	{
         Debug.Log ("[Action_Dialog] : Start : " + m_dialogcontent);
-        ApplicationStatusManager.GetStatus<GameStatus>().CloseUI<DialogWindow>();
-        ApplicationStatusManager.GetStatus<GameStatus>().OpenUI<DialogWindow>();
-        End();
-	}
-
-	// Update is called once per frame
-	public override void Update ()
-	{
-        
+		if (UIManager.GetUI<DialogWindow>() == null) 
+		{
+			ApplicationStatusManager.GetStatus<GameStatus>().OpenUI<DialogWindow>();
+		}
+		DialogWindow kWindow = UIManager.GetUI<DialogWindow>() as DialogWindow;
+		if (kWindow != null) 
+		{
+			kWindow.OnRefreshContent (m_dialogcontent,0);
+		}
 	}
 
     public void OnDialogEnd()
     {
-        End();
+		ApplicationStatusManager.GetStatus<GameStatus>().CloseUI<DialogWindow>();
+		End();
     }
-
 }

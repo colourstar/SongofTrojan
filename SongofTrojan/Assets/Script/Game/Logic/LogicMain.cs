@@ -9,6 +9,7 @@ using System.Collections;
 public static class LogicMain
 {
 	public static StoryManager m_StoryManager = new StoryManager();
+	public static MessageManager m_MessageManager = new MessageManager ();
 	// Init Progress
 	public static void Init()
 	{
@@ -18,11 +19,13 @@ public static class LogicMain
     public static void Start()
     {
         m_StoryManager.Start();
+		m_MessageManager.Start ();
     }
 
 	// Update is called once per logic frame
 	public static void Update ()
 	{
 		m_StoryManager.Update ();
+		m_MessageManager.Update ();
 	}
 }

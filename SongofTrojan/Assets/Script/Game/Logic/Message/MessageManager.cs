@@ -19,17 +19,22 @@ public class MessageManager
 
     public struct Message
     {
-        public MessageType eType;
-        public Dictionary<string,string> mgparams;
+		Message(MessageType messagetype,Dictionary<string, string> msgparams)
+		{
+			m_eType = messagetype;
+			m_params = msgparams;
+		}
+        public MessageType m_eType;
+        public Dictionary<string,string> m_params;
     }
 
     public bool             m_isBegin = false;
     public List<Message>    m_MessageList = new List<Message>();
 
-    public void AddMessage(Message kMsg)
-    {
-        m_MessageList.Add(kMsg);
-    }
+	public void Start()
+	{
+		m_isBegin = true;
+	}
 
     public void Update()
     {
@@ -45,9 +50,14 @@ public class MessageManager
         m_MessageList.Clear();
     }
 
+	public void AddMessage(Message kMsg)
+	{
+		m_MessageList.Add(kMsg);
+	}
+
     private void _ProcessMsg(Message kMsg)
     {
-        if (kMsg.eType == MessageType.MT_DialogClick)
+		if (kMsg.m_eType == MessageType.MT_DialogClick)
         {
             Story curstory = LogicMain.m_StoryManager.GetCurrentStory();
             if (curstory == null)

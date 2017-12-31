@@ -29,19 +29,21 @@ public class StartWindow : UIWindowBase
     }
 
     //UI的退出动画
-    public override IEnumerator ExitAnim(UIAnimCallBack l_animComplete, UICallBack l_callBack, params object[] objs)
-    {
-        AnimSystem.UguiAlpha(gameObject , null, 0, callBack:(object[] obj) =>
-        {
-            StartCoroutine(base.ExitAnim(l_animComplete, l_callBack, objs));
-        });
-
-        yield return new WaitForEndOfFrame();
-    }
+//    public override IEnumerator ExitAnim(UIAnimCallBack l_animComplete, UICallBack l_callBack, params object[] objs)
+//    {
+//        AnimSystem.UguiAlpha(gameObject , null, 0, callBack:(object[] obj) =>
+//        {
+//            StartCoroutine(base.ExitAnim(l_animComplete, l_callBack, objs));
+//        });
+//
+//        yield return new WaitForEndOfFrame();
+//    }
 
 	// 按钮消息接受
 	public void OnStartClick(InputUIOnClickEvent e)
 	{
+		ApplicationStatusManager.GetStatus<StartStatus>().CloseUI<StartWindow>();
 		ApplicationStatusManager.EnterStatus<GameStatus>();
+//		ApplicationStatusManager.GetStatus<StartStatus>().CloseUI<StartWindow>();
 	}
 }
