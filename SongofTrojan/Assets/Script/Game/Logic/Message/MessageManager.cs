@@ -72,6 +72,7 @@ public class MessageManager
                 return;
             }
 
+            // 需要判断story的下一个是否仍旧是dialog类型
             kActionDialog.OnDialogEnd();
         }
     }

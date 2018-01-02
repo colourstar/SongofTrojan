@@ -70,6 +70,11 @@ public class UIWindowBase : UIBase
         gameObject.SetActive(false);
     }
 
+    public bool IsShow()
+    {
+        return gameObject.activeInHierarchy;
+    }
+
     #endregion 
 
     #region 继承方法

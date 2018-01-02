@@ -18,7 +18,7 @@ public class ActionBase
 		AS_End = 1,
 	}
 
-	public ActionState m_eState = ActionState.AS_Waiting;
+	public ActionState m_eState = ActionState.AS_Waiting;           // 当前action的状态,处于等待/进行中/结束
 
 	// Use this for initialization
 	public virtual void Init (table.StoryDefine kStruct)

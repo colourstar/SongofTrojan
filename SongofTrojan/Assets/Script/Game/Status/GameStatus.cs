@@ -22,4 +22,34 @@ public class GameStatus : IApplicationStatus
 	{
 		LogicMain.Update ();
 	}
+
+    public void     OnDialog(string content,int iroleid)
+    {
+        // 判断对话窗口是否开启
+        DialogWindow uiDialog = UIManager.GetUI<DialogWindow>();
+        if (uiDialog == null)
+        {
+            uiDialog = OpenUI<DialogWindow>();
+        }
+        if (uiDialog.IsShow() == false)
+        {
+            uiDialog.Show();
+        }
+
+        uiDialog.OnRefreshContent(content, iroleid);
+    }
+
+    public void     OnDialogEnd(bool isneeddel)
+    {
+        // 判断对话窗口是否开启
+        DialogWindow uiDialog = UIManager.GetUI<DialogWindow>();
+        if (uiDialog == null)
+        {
+            return;
+        }
+        if (uiDialog.IsShow() == true)
+        {
+            uiDialog.Hide();
+        }
+    }
 }

@@ -87,7 +87,7 @@ public class Story
 		}
 	}
 
-	// addaction
+	// 添加action
 	public void AddAction(table.StoryDefine kDefineStruct)
 	{
 		string str = kDefineStruct.ActionType;
@@ -111,6 +111,7 @@ public class Story
 		// 这里派发事件
 	}
 
+    // 切换到下一个action
 	private void _NextAction()
 	{
 		if (m_isbegin == false) 
@@ -125,11 +126,13 @@ public class Story
 		m_curactionidx += 1;
 	}
 
+    // 判定是否所有的action都已经结束了
 	public bool GetAllActionEnd()
 	{
 		return m_isallactionend;
 	}
 
+    // 获取当前action
     public ActionBase GetCurrentAction()
     {
         if (m_curactionidx < 0 || m_curactionidx >= m_ActionList.Count)
@@ -138,5 +141,16 @@ public class Story
         }
 
         return m_ActionList[m_curactionidx];
+    }
+
+    // 获取下一个action
+    public ActionBase GetNextAction()
+    {
+        if (m_curactionidx + 1 < 0 || m_curactionidx + 1 >= m_ActionList.Count)
+        {
+            return null;
+        }
+
+        return m_ActionList[m_curactionidx + 1];
     }
 }
