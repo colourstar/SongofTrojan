@@ -9,6 +9,9 @@ using System.Collections;
 
 public class GameStatus : IApplicationStatus
 {
+    protected UIWindowBase m_kCurMapScene = null;       // 普通地图界面
+    protected UIWindowBase m_kBigMapScene = null;       // 大地图界面
+
 	public override void OnEnterStatus()
 	{
 		// 初始化Logic的配置
@@ -23,7 +26,11 @@ public class GameStatus : IApplicationStatus
 		LogicMain.Update ();
 	}
 
-    public void     OnDialog(string content,int iroleid)
+
+    /// <summary>
+    /// 开启对话
+    /// </summary>
+    public void OnDialog(string content,int iroleid)
     {
         // 判断对话窗口是否开启
         DialogWindow uiDialog = UIManager.GetUI<DialogWindow>();
@@ -39,7 +46,10 @@ public class GameStatus : IApplicationStatus
         uiDialog.OnRefreshContent(content, iroleid);
     }
 
-    public void     OnDialogEnd(bool isneeddel)
+    /// <summary>
+    /// 对话结束
+    /// </summary>
+    public void OnDialogEnd(bool isneeddel)
     {
         // 判断对话窗口是否开启
         DialogWindow uiDialog = UIManager.GetUI<DialogWindow>();
@@ -52,4 +62,46 @@ public class GameStatus : IApplicationStatus
             uiDialog.Hide();
         }
     }
+
+    /// <summary>
+    /// 进入地图
+    /// </summary>
+    public void ChangeMapScene(int iFromMapID,int iToMapID)
+    {
+        ApplicationManager.Instance.StartCoroutine(_ChangeSceneAnim(iFromMapID,iToMapID));
+    }
+
+    protected IEnumerator _ChangeSceneAnim(int iFromMapID,int iToMapID)
+    {
+        table.MapDefine kFromMap = TabtoyConfigManager.GetConfig().GetMapByID(iFromMapID);
+        table.MapDefine kToMap = TabtoyConfigManager.GetConfig().GetMapByID(iToMapID);
+        if (kToMap == null)
+        {
+            Debug.LogError("[Map] : Error,map is not exist");
+            yield break;
+        }
+
+        // 首先播放场景结束动画
+        if (kFromMap != null)
+        {
+            if (kFromMap.MapType == "大地图")
+            {
+                
+            }
+            else if (kFromMap.MapType == "城市")
+            {
+            }
+        }
+
+        // 然后播放场景加载动画
+        if (kToMap.MapType == "大地图")
+        {
+            
+        }
+        else if (kToMap.MapType == "城市")
+        {
+            
+        }
+    }
+
 }

@@ -54,5 +54,21 @@ public class MapManager : IModuleBase
     {
     }
 
+    public void EnterMap(int iMapID)
+    {
+        if (iMapID == m_iCurMapID)
+        {
+            return;
+        }
 
+        ApplicationStatusManager.GetStatus<GameStatus>().ChangeMapScene(m_iCurMapID,iMapID);
+
+        m_iCurMapID = iMapID;
+    }
+
+
+    public int GetCurMapID()
+    {
+        return m_iCurMapID;
+    }
 }
