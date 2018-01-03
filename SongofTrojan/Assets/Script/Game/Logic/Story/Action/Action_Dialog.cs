@@ -32,7 +32,8 @@ public class Action_Dialog : ActionBase
     {
         // 对话结束的时候,需要判定一下是否需要隐藏界面,依据是下一个动作是否仍旧是action_dialog类型
         bool isneeddel = true;
-        Story curstory = LogicMain.m_StoryManager.GetCurrentStory();
+        StoryManager kStoryManager = LogicMain.GetModule("StoryManager") as StoryManager;
+        Story curstory = kStoryManager.GetCurrentStory();
         if (curstory != null)
         {
             Action_Dialog kNextAction = curstory.GetNextAction() as Action_Dialog;

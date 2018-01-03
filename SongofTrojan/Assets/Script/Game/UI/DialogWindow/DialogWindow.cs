@@ -53,8 +53,9 @@ public class DialogWindow : UIWindowBase
     {
 		MessageManager.Message kMsg = new MessageManager.Message ();
 		kMsg.m_eType = MessageManager.MessageType.MT_DialogClick;
-		kMsg.m_params = new Dictionary<string,string> ();
-		LogicMain.m_MessageManager.AddMessage (kMsg);
+		kMsg.m_dicParams = new Dictionary<string,string> ();
+        MessageManager kMessageManager = LogicMain.GetModule("MessageManager") as MessageManager;
+        kMessageManager.AddMessage (kMsg);
         Debug.Log("Dialog Window On Clicked");
     }
 }

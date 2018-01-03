@@ -30,6 +30,11 @@ namespace table
 		/// Role
 		/// </summary>
 		public List<RoleDefine> Role = new List<RoleDefine>(); 
+		
+		/// <summary> 
+		/// Map
+		/// </summary>
+		public List<MapDefine> Map = new List<MapDefine>(); 
 	
 	
 		#region Index code
@@ -97,6 +102,38 @@ namespace table
 
             return def;
         }
+		Dictionary<int, MapDefine> _MapByID = new Dictionary<int, MapDefine>();
+        public MapDefine GetMapByID(int ID, MapDefine def = default(MapDefine))
+        {
+            MapDefine ret;
+            if ( _MapByID.TryGetValue( ID, out ret ) )
+            {
+                return ret;
+            }
+			
+			if ( def == default(MapDefine) )
+			{
+				TableLogger.ErrorLine("GetMapByID failed, ID: {0}", ID);
+			}
+
+            return def;
+        }
+		Dictionary<string, MapDefine> _MapByName = new Dictionary<string, MapDefine>();
+        public MapDefine GetMapByName(string Name, MapDefine def = default(MapDefine))
+        {
+            MapDefine ret;
+            if ( _MapByName.TryGetValue( Name, out ret ) )
+            {
+                return ret;
+            }
+			
+			if ( def == default(MapDefine) )
+			{
+				TableLogger.ErrorLine("GetMapByName failed, Name: {0}", Name);
+			}
+
+            return def;
+        }
 		
 	
 		#endregion
@@ -137,6 +174,11 @@ namespace table
 						ins.Role.Add( reader.ReadStruct<RoleDefine>(RoleDefineDeserializeHandler) );
                 	}
                 	break; 
+                	case 0xa0003:
+                	{
+						ins.Map.Add( reader.ReadStruct<MapDefine>(MapDefineDeserializeHandler) );
+                	}
+                	break; 
                 }
              }
 
@@ -167,6 +209,17 @@ namespace table
 				var element = ins.Role[i];
 				
 				ins._RoleByID.Add(element.ID, element);
+				
+			}
+			
+			// Build Map Index
+			for( int i = 0;i< ins.Map.Count;i++)
+			{
+				var element = ins.Map[i];
+				
+				ins._MapByID.Add(element.ID, element);
+				
+				ins._MapByName.Add(element.Name, element);
 				
 			}
 			
@@ -336,6 +389,61 @@ namespace table
 
 			
 		}
+		static tabtoy.DeserializeHandler<MapDefine> _MapDefineDeserializeHandler;
+		static tabtoy.DeserializeHandler<MapDefine> MapDefineDeserializeHandler
+		{
+			get
+			{
+				if (_MapDefineDeserializeHandler == null )
+				{
+					_MapDefineDeserializeHandler = new tabtoy.DeserializeHandler<MapDefine>(Deserialize);
+				}
+
+				return _MapDefineDeserializeHandler;
+			}
+		}
+		public static void Deserialize( MapDefine ins, tabtoy.DataReader reader )
+		{
+ 			int tag = -1;
+            while ( -1 != (tag = reader.ReadTag()))
+            {
+                switch (tag)
+                { 
+                	case 0x10000:
+                	{
+						ins.ID = reader.ReadInt32();
+                	}
+                	break; 
+                	case 0x60001:
+                	{
+						ins.Name = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60002:
+                	{
+						ins.MapType = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60003:
+                	{
+						ins.ShowName = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60004:
+                	{
+						ins.Desc = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60005:
+                	{
+						ins.ChildMap = reader.ReadString();
+                	}
+                	break; 
+                }
+             }
+
+			
+		}
 		#endregion
 	
 
@@ -456,6 +564,46 @@ namespace table
 		/// 普通立绘
 		/// </summary>
 		public string NormalDrawing = ""; 
+	
+	
+
+	} 
+
+	// Defined in table: Map
+	
+	public partial class MapDefine
+	{
+	
+		
+		/// <summary> 
+		/// 唯一ID
+		/// </summary>
+		public int ID = 0; 
+		
+		/// <summary> 
+		/// 地图名称
+		/// </summary>
+		public string Name = ""; 
+		
+		/// <summary> 
+		/// 地图类型
+		/// </summary>
+		public string MapType = ""; 
+		
+		/// <summary> 
+		/// 显示名称
+		/// </summary>
+		public string ShowName = ""; 
+		
+		/// <summary> 
+		/// 描述
+		/// </summary>
+		public string Desc = ""; 
+		
+		/// <summary> 
+		/// 子地图
+		/// </summary>
+		public string ChildMap = ""; 
 	
 	
 

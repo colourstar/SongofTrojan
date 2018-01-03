@@ -6,6 +6,7 @@ tabtoy.exe ^
 Globals.xlsx ^
 Action.xlsx ^
 Story.xlsx ^
-Role.xlsx
+Role.xlsx ^
+Map.xlsx
 
 pause

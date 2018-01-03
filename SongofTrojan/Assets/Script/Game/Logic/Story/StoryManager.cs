@@ -9,23 +9,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class StoryManager
+public class StoryManager : IModuleBase
 {
-	private Dictionary<string,Story> 	m_dicStorys = new Dictionary<string,Story>();
-	private List<Story> 				m_activestoryforblocks = new List<Story>();
+    public StoryManager() : base("StoryManager"){}
 
-	private bool 						m_isbegin = false;
-	private Story 						m_currentstory = null;
-	private List<Story> 				m_activestorys = new List<Story>();
+	private Dictionary<string,Story> 	m_dicStorys = new Dictionary<string,Story>();
+	private List<Story> 				m_arrActivestoryforblocks = new List<Story>();
+
+	private Story 						m_kCurrentstory = null;
+	private List<Story> 				m_arrActivestorys = new List<Story>();
 
 	// Use this for initialization
-	public void Init ()
+	public override void Init ()
 	{
-		m_currentstory = null;
-		m_isbegin = false;
+		m_kCurrentstory = null;
 		m_dicStorys.Clear ();
-		m_activestorys.Clear ();
-		m_activestoryforblocks.Clear ();
+		m_arrActivestorys.Clear ();
+		m_arrActivestoryforblocks.Clear ();
 
 		// 首先读取配置表,加载所有的剧情
 		table.Config kConfig = TabtoyConfigManager.GetConfig();
@@ -47,7 +47,7 @@ public class StoryManager
 
 				if (storystruct.InitOpen == true) 
 				{
-					m_currentstory = storyinstance;
+					m_kCurrentstory = storyinstance;
 				}
 			}
 
@@ -55,46 +55,43 @@ public class StoryManager
 		}
 	}
 
-	public void Start()
+    public override void Start()
 	{
-		m_isbegin = true;
-		if (m_currentstory == null) 
+        base.Start();
+
+		if (m_kCurrentstory == null) 
 		{
 			return;
 		}
 
-		m_currentstory.Start ();
+		m_kCurrentstory.Start ();
 	}
 	
 	// Update is called once per frame
-	public void Update ()
+    public override void Update ()
 	{
-		if (m_isbegin == false) 
+		if (m_kCurrentstory == null)
 		{
-			return;
-		}
-		if (m_currentstory == null)
-		{
-			if (m_activestorys.Count == 0)
+			if (m_arrActivestorys.Count == 0)
 			{
 				return;
 			}
 			else
 			{
-				int count = m_activestorys.Count;
-				m_currentstory = m_activestorys[count - 1];
-				m_activestorys.RemoveAt(count - 1);
+				int count = m_arrActivestorys.Count;
+				m_kCurrentstory = m_arrActivestorys[count - 1];
+				m_arrActivestorys.RemoveAt(count - 1);
 			}
 		}
 
 		// 剧情结果判定
-		if (m_currentstory.GetAllActionEnd() == true)
+		if (m_kCurrentstory.GetAllActionEnd() == true)
 		{
-			m_currentstory = null;
+			m_kCurrentstory = null;
 			return;
 		}
 
-		m_currentstory.Update();
+		m_kCurrentstory.Update();
 	}
 
 	public void JumptoStory(string key)
@@ -105,18 +102,18 @@ public class StoryManager
 			Debug.LogError("[storymanager] : JumptoStory Error,storyname : " + key);
 			return;
 		}
-		if (m_currentstory != null)
+		if (m_kCurrentstory != null)
 		{
-			m_activestorys.Add(m_currentstory);
+			m_arrActivestorys.Add(m_kCurrentstory);
 		}
-		m_currentstory = m_dicStorys[key];
+		m_kCurrentstory = m_dicStorys[key];
 
-		m_currentstory.Start();
+		m_kCurrentstory.Start();
 	}
 
     public Story GetCurrentStory()
     {
-        return m_currentstory;
+        return m_kCurrentstory;
     }
 }
 

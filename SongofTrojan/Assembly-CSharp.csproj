@@ -199,7 +199,9 @@
      <Compile Include="Assets\Script\Core\Utils\ResourceIOTool.cs" />
      <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
      <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Common\ModuleBase.cs" />
      <Compile Include="Assets\Script\Game\Logic\LogicMain.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Map\MapManager.cs" />
      <Compile Include="Assets\Script\Game\Logic\Message\MessageManager.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" />

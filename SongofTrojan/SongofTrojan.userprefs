@@ -2,12 +2,22 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs">
     <Files>
-      <File FileName="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" Line="20" Column="45" />
-      <File FileName="Assets\Script\Game\UI\StartWindow\StartWindow.cs" Line="46" Column="54" />
-      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="42" Column="14" />
-      <File FileName="Assets\Script\Core\UI\Model\UIBase.cs" Line="231" Column="16" />
-      <File FileName="Assets\Script\Core\ResourceLoad\ResourceManager.cs" Line="71" Column="23" />
-      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="31" Column="58" />
+      <File FileName="Assets\Script\Game\Logic\LogicMain.cs" Line="31" Column="2" />
+      <File FileName="Assets\Script\Game\UI\StartWindow\StartWindow.cs" Line="20" Column="14" />
+      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="5" Column="35" />
+      <File FileName="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" Line="51" Column="6" />
+      <File FileName="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" Line="28" Column="5" />
+      <File FileName="Assets\Script\Game\Status\GameStatus.cs" Line="43" Column="6" />
+      <File FileName="Assets\Script\Core\Application\IApplicationStatus.cs" Line="30" Column="29" />
+      <File FileName="Assets\Script\Core\UI\Model\UIWindowBase.cs" Line="54" Column="48" />
+      <File FileName="Assets\Script\Core\UI\Model\UIBase.cs" Line="7" Column="1" />
+      <File FileName="Assets\Script\Game\Logic\Message\MessageManager.cs" Line="76" Column="38" />
+      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="64" Column="4" />
+      <File FileName="Assets\Script\Game\Logic\Story\Story.cs" Line="90" Column="13" />
+      <File FileName="Assets\Script\Core\Config\TabtoyConfigManager.cs" Line="18" Column="3" />
+      <File FileName="Assets\Script\Core\Config\Logger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Core\Config\TabtoyConfigDef.cs" Line="231" Column="14" />
+      <File FileName="Assets\Script\Core\Config\ConfigManager.cs" Line="89" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
