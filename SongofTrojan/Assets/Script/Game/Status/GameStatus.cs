@@ -104,4 +104,12 @@ public class GameStatus : IApplicationStatus
         }
     }
 
+    /// <summary>
+    /// 保存游戏
+    /// </summary>
+    public void SaveGame(string savefilename)
+    {
+        
+    }
+
 }

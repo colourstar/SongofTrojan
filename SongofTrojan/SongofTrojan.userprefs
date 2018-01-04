@@ -1,19 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Logic\LogicMain.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Status\GameStatus.cs">
     <Files>
-      <File FileName="Assets\Script\Game\Logic\Common\ModuleBase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Map\MapManager.cs" Line="42" Column="67" />
-      <File FileName="Assets\Script\Game\Logic\LogicMain.cs" Line="25" Column="3" />
-      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Message\MessageManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Story\Story.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Core\Application\IApplicationStatus.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Core\Application\GlobalLogicManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Core\Application\ApplicationStatusManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Core\Application\ApplicationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Status\GameStatus.cs" Line="91" Column="47" />
+      <File FileName="Assets\Script\Core\HotUpdate\HotUpdateManager.cs" Line="50" Column="68" />
+      <File FileName="Assets\Script\Game\UI\StartWindow\StartWindow.cs" Line="45" Column="57" />
+      <File FileName="Assets\Script\Core\Application\IApplicationStatus.cs" Line="31" Column="22" />
+      <File FileName="Assets\Script\Core\UI\Control\UIManager.cs" Line="166" Column="34" />
+      <File FileName="Assets\Script\Core\UI\Control\UIAnimManager.cs" Line="37" Column="38" />
+      <File FileName="Assets\Script\Core\UI\Model\UIWindowBase.cs" Line="51" Column="5" />
+      <File FileName="Assets\Script\Core\Application\ApplicationStatusManager.cs" Line="103" Column="9" />
+      <File FileName="Assets\Script\Game\Logic\Map\MapManager.cs" Line="66" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -17,6 +17,14 @@ public class DialogWindow : UIWindowBase
 
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.F12))
+        {
+            
+        }
+    }
+
     //UI的进入动画
 //    public override IEnumerator EnterAnim(UIAnimCallBack l_animComplete, UICallBack l_callBack, params object[] objs)
 //    {
