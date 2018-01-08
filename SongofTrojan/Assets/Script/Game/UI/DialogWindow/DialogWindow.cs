@@ -21,7 +21,11 @@ public class DialogWindow : UIWindowBase
     {
         if (Input.GetKeyUp(KeyCode.F12))
         {
-            
+            LogicMain.Save("save_0.json");
+        }
+        else if (Input.GetKey(KeyCode.F11))
+        {
+            LogicMain.Reload("save_0.json");
         }
     }
 

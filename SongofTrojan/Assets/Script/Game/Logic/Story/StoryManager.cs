@@ -115,5 +115,17 @@ public class StoryManager : IModuleBase
     {
         return m_kCurrentstory;
     }
+
+    public override object   Save()
+    {
+        Dictionary<string,object> akGameSave = new Dictionary<string,object>();
+        akGameSave.Add("index", 1);
+        return akGameSave;
+    }
+
+    public override void     Reload(Dictionary<string,object> akLoad)
+    {
+        
+    }
 }
 
