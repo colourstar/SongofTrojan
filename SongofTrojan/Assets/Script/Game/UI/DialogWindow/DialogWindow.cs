@@ -22,11 +22,10 @@ public class DialogWindow : UIWindowBase
         if (Input.GetKeyUp(KeyCode.F12))
         {
             ApplicationStatusManager.GetStatus<GameStatus>().SaveGame("save_0.txt");
-            // ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().Save("save_0.json");
         }
         else if (Input.GetKey(KeyCode.F11))
         {
-            // ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().Reload("save_0.json");
+            ApplicationStatusManager.GetStatus<GameStatus>().LoadGame("save_0.txt");
         }
     }
 

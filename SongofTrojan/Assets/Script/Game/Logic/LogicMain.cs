@@ -60,37 +60,4 @@ public class LogicMain
 
         return null;
     }
-
-    public void Save(string filename)
-    {
-//        Dictionary<string,object> akGameSave = new Dictionary<string,object>();
-//        for (int i = 0; i < m_arrModules.Count; ++i)
-//        {
-//            string modulename = m_arrModules[i].m_strModuleName;
-//            akGameSave.Add(modulename, m_arrModules[i].Save());
-//        }
-//
-//        string kSaveJsonString = FrameWork.Json.Serialize(akGameSave as object);
-//
-//        ResourceIOTool.WriteStringByFile(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + filename),kSaveJsonString);
-
-    }
-
-    public void Reload(string filename)
-    {
-        string jsoncontent = ResourceIOTool.ReadStringByFile(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + filename));
-        Dictionary<string,object> akGameLoad = FrameWork.Json.Deserialize(jsoncontent) as Dictionary<string,object>;
-        for (int i = 0; i < m_arrModules.Count; ++i)
-        {
-            string modulename = m_arrModules[i].m_strModuleName;
-            if (akGameLoad.ContainsKey(modulename))
-            {
-                Dictionary<string,object> kModuleLoad = akGameLoad[modulename] as Dictionary<string,object>;
-                if (kModuleLoad != null)
-                {
-                    m_arrModules[i].Reload(kModuleLoad);
-                }
-            }
-        }
-    }
 }

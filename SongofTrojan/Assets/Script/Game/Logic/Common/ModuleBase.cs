@@ -38,14 +38,4 @@ public class IModuleBase
     {
         return m_bIsBegin;
     }
-
-    public virtual void     Reload(Dictionary<string,object> akLoad)
-    {
-    }
-
-    public virtual object   Save()
-    {
-        return new Dictionary<string,object>();
-    }
-
 }

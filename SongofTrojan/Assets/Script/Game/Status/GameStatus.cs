@@ -116,13 +116,21 @@ public class GameStatus : IApplicationStatus
     /// </summary>
     public void SaveGame(string savefilename)
     {
-        FileStream kSaveStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/save_0.txt"),FileMode.Create,FileAccess.ReadWrite,FileShare.None);
+        FileStream kSaveStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + savefilename),FileMode.Create,FileAccess.ReadWrite,FileShare.ReadWrite);
         BinaryFormatter kFormater = new BinaryFormatter();
         kFormater.Serialize(kSaveStream, m_kLogicMain);
         kSaveStream.Close();
+    }
 
-        FileStream kReadStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/save_0.txt"), FileMode.Open , FileAccess.Read ,FileShare.Read );
+    /// <summary>
+    /// 重新加载游戏
+    /// </summary>
+    public void LoadGame(string loadfilename)
+    {
+        BinaryFormatter kFormater = new BinaryFormatter();
+        FileStream kReadStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + loadfilename), FileMode.Open , FileAccess.Read ,FileShare.Read );
         m_kLogicMain = kFormater.Deserialize(kReadStream) as LogicMain;
+        kReadStream.Close();
     }
 
 
