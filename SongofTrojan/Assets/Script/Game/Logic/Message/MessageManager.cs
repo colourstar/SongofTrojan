@@ -8,7 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-
+[Serializable]
 public class MessageManager : IModuleBase
 {
     public MessageManager() : base("MessageManager"){}
@@ -56,7 +56,7 @@ public class MessageManager : IModuleBase
     {
 		if (kMsg.m_eType == MessageType.MT_DialogClick)
         {
-            StoryManager kStoryManager = LogicMain.GetModule("StoryManager") as StoryManager;
+            StoryManager kStoryManager = ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().GetModule("StoryManager") as StoryManager;
             Story curstory = kStoryManager.GetCurrentStory();
             if (curstory == null)
             {

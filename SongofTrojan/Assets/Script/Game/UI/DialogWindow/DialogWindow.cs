@@ -21,11 +21,12 @@ public class DialogWindow : UIWindowBase
     {
         if (Input.GetKeyUp(KeyCode.F12))
         {
-            LogicMain.Save("save_0.json");
+            ApplicationStatusManager.GetStatus<GameStatus>().SaveGame("save_0.txt");
+            // ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().Save("save_0.json");
         }
         else if (Input.GetKey(KeyCode.F11))
         {
-            LogicMain.Reload("save_0.json");
+            // ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().Reload("save_0.json");
         }
     }
 
@@ -66,7 +67,7 @@ public class DialogWindow : UIWindowBase
 		MessageManager.Message kMsg = new MessageManager.Message ();
 		kMsg.m_eType = MessageManager.MessageType.MT_DialogClick;
 		kMsg.m_dicParams = new Dictionary<string,string> ();
-        MessageManager kMessageManager = LogicMain.GetModule("MessageManager") as MessageManager;
+        MessageManager kMessageManager = ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().GetModule("MessageManager") as MessageManager;
         kMessageManager.AddMessage (kMsg);
         Debug.Log("Dialog Window On Clicked");
     }

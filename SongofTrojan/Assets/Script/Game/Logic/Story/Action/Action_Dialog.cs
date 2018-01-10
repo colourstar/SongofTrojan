@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class Action_Dialog : ActionBase
 {
 	private string  m_dialogcontent = "";           // 对话内容
@@ -32,7 +33,7 @@ public class Action_Dialog : ActionBase
     {
         // 对话结束的时候,需要判定一下是否需要隐藏界面,依据是下一个动作是否仍旧是action_dialog类型
         bool isneeddel = true;
-        StoryManager kStoryManager = LogicMain.GetModule("StoryManager") as StoryManager;
+        StoryManager kStoryManager = ApplicationStatusManager.GetStatus<GameStatus>().GetLogicMain().GetModule("StoryManager") as StoryManager;
         Story curstory = kStoryManager.GetCurrentStory();
         if (curstory != null)
         {

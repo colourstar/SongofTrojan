@@ -5,25 +5,32 @@
 
 
 using UnityEngine;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
 
 public class GameStatus : IApplicationStatus
 {
     protected UIWindowBase m_kCurMapScene = null;       // 普通地图界面
     protected UIWindowBase m_kBigMapScene = null;       // 大地图界面
+    public    LogicMain    m_kLogicMain = null;         // 主逻辑
 
 	public override void OnEnterStatus()
 	{
+        m_kLogicMain = new LogicMain();
 		// 初始化Logic的配置
-		LogicMain.Init ();
+        m_kLogicMain.Init ();
 
         // 开始逻辑
-        LogicMain.Start ();
+        m_kLogicMain.Start ();
 	}
 
 	public override void OnUpdate()
 	{
-		LogicMain.Update ();
+        m_kLogicMain.Update ();
 	}
 
 
@@ -109,7 +116,18 @@ public class GameStatus : IApplicationStatus
     /// </summary>
     public void SaveGame(string savefilename)
     {
-        
+        FileStream kSaveStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/save_0.txt"),FileMode.Create,FileAccess.ReadWrite,FileShare.None);
+        BinaryFormatter kFormater = new BinaryFormatter();
+        kFormater.Serialize(kSaveStream, m_kLogicMain);
+        kSaveStream.Close();
+
+        FileStream kReadStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/save_0.txt"), FileMode.Open , FileAccess.Read ,FileShare.Read );
+        m_kLogicMain = kFormater.Deserialize(kReadStream) as LogicMain;
     }
 
+
+    public LogicMain GetLogicMain()
+    {
+        return m_kLogicMain;
+    }
 }

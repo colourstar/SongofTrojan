@@ -8,6 +8,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class IModuleBase
 {
     protected bool      m_bIsBegin = false;

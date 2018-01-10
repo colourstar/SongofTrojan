@@ -4,15 +4,19 @@
 /// </summary>
 
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
-public static class LogicMain
+[Serializable]
+public class LogicMain
 {
-    public static List<IModuleBase> m_arrModules = new List<IModuleBase>();
+    public List<IModuleBase> m_arrModules = new List<IModuleBase>();
 
 	// Init Progress
-	public static void Init()
+	public void Init()
 	{
         m_arrModules.Add(new StoryManager());
         m_arrModules.Add(new MapManager());
@@ -24,7 +28,7 @@ public static class LogicMain
         }
 	}
 
-    public static void Start()
+    public void Start()
     {
         for (int i = 0; i < m_arrModules.Count; ++i)
         {
@@ -33,7 +37,7 @@ public static class LogicMain
     }
 
 	// Update is called once per logic frame
-	public static void Update ()
+	public void Update ()
 	{
         for (int i = 0; i < m_arrModules.Count; ++i)
         {
@@ -44,7 +48,7 @@ public static class LogicMain
         }
 	}
 
-    public static IModuleBase GetModule(string kModuleName)
+    public IModuleBase GetModule(string kModuleName)
     {
         for (int i = 0; i < m_arrModules.Count; ++i)
         {
@@ -57,21 +61,22 @@ public static class LogicMain
         return null;
     }
 
-    public static void Save(string filename)
+    public void Save(string filename)
     {
-        Dictionary<string,object> akGameSave = new Dictionary<string,object>();
-        for (int i = 0; i < m_arrModules.Count; ++i)
-        {
-            string modulename = m_arrModules[i].m_strModuleName;
-            akGameSave.Add(modulename, m_arrModules[i].Save());
-        }
+//        Dictionary<string,object> akGameSave = new Dictionary<string,object>();
+//        for (int i = 0; i < m_arrModules.Count; ++i)
+//        {
+//            string modulename = m_arrModules[i].m_strModuleName;
+//            akGameSave.Add(modulename, m_arrModules[i].Save());
+//        }
+//
+//        string kSaveJsonString = FrameWork.Json.Serialize(akGameSave as object);
+//
+//        ResourceIOTool.WriteStringByFile(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + filename),kSaveJsonString);
 
-        string kSaveJsonString = FrameWork.Json.Serialize(akGameSave as object);
-
-        ResourceIOTool.WriteStringByFile(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + filename),kSaveJsonString);
     }
 
-    public static void Reload(string filename)
+    public void Reload(string filename)
     {
         string jsoncontent = ResourceIOTool.ReadStringByFile(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + filename));
         Dictionary<string,object> akGameLoad = FrameWork.Json.Deserialize(jsoncontent) as Dictionary<string,object>;

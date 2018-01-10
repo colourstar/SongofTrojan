@@ -8,10 +8,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class MapManager : IModuleBase
 {
     public MapManager() : base("MapManager"){}
 
+    [Serializable]
     public struct Map
     {
         public int          iMapID;

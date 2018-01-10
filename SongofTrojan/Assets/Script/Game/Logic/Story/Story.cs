@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
+[Serializable]
 public class Story
 {
 	private string 				m_strStoryName = "";						// 剧情名称
