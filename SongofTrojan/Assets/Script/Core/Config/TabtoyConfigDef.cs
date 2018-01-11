@@ -6,6 +6,21 @@ using System.Collections.Generic;
 namespace table
 {
 	
+	// Defined in table: Role
+	public enum AttrType
+	{
+		
+		
+		Stren = 0, // 力量
+		
+		
+		Defense = 1, // 防御
+		
+		
+		Agile = 2, // 敏捷
+	
+	}
+	
 	
 
 	// Defined in table: Config

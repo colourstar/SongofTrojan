@@ -93,7 +93,6 @@ public class GameStatus : IApplicationStatus
         {
             if (kFromMap.MapType == "大地图")
             {
-                
             }
             else if (kFromMap.MapType == "城市")
             {

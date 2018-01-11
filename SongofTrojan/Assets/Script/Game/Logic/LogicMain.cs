@@ -21,6 +21,7 @@ public class LogicMain
         m_arrModules.Add(new StoryManager());
         m_arrModules.Add(new MapManager());
         m_arrModules.Add(new MessageManager());
+        m_arrModules.Add(new CharacterManager());
 
         for (int i = 0; i < m_arrModules.Count; ++i)
         {

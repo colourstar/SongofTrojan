@@ -1,26 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Logic\Story\StoryManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Game\Status\GameStatus.cs">
     <Files>
-      <File FileName="Assets\Script\Game\Logic\LogicMain.cs" Line="86" Column="1" />
-      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="129" Column="6" />
-      <File FileName="Assets\Script\Game\Logic\Common\ModuleBase.cs" Line="41" Column="68" />
-      <File FileName="Assets\Script\Core\Utils\MiniJSON.cs" Line="401" Column="9" />
-      <File FileName="Assets\Script\Core\Utils\JsonTool.cs" Line="24" Column="10" />
-      <File FileName="Assets\Script\Core\Utils\ParseTool.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Core\Editor\Config\ConfigEditorWindow.cs" Line="373" Column="50" />
-      <File FileName="Assets\Script\Core\Record\RecordTable.cs" Line="28" Column="35" />
-      <File FileName="Assets\Script\Core\Editor\Package\VersionService.cs" Line="75" Column="32" />
-      <File FileName="Assets\Script\Core\Editor\UI\UIStyleConfigManager.cs" Line="24" Column="83" />
-      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="28" Column="27" />
-      <File FileName="Assets\Script\Core\Utils\PathTool.cs" Line="56" Column="5" />
-      <File FileName="Assets\Script\Core\Utils\ResourceIOTool.cs" Line="29" Column="5" />
+      <File FileName="Assets\Script\Game\Logic\LogicMain.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Logic\Story\Condition\ConditionBase.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Logic\Story\Story.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Logic\Story\StoryManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Game\Status\GameStatus.cs" Line="109" Column="13" />
+      <File FileName="Assets\Script\Game\UI\DialogWindow\DialogWindow.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="K:\01 Project\01 Game\12 SongofTrojan\SongofTrojan\Assets\Script\Core\Editor\UI\UICreateService.cs" line="186" column="56" />
-      <Breakpoint file="K:\01 Project\01 Game\12 SongofTrojan\SongofTrojan\Assets\Script\Game\Logic\LogicMain.cs" line="76" column="40" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

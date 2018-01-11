@@ -26,7 +26,7 @@ public static class TabtoyConfigManager
 			Console.WriteLine("combine file crack!");
 			return;
 		}
-			
+
 		table.Config.Deserialize(m_tabtoyConfig, reader);
 		var directFetch = m_tabtoyConfig.Story[0];
 

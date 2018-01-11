@@ -199,10 +199,14 @@
      <Compile Include="Assets\Script\Core\Utils\ResourceIOTool.cs" />
      <Compile Include="Assets\Script\Core\Utils\SystemInfoTool.cs" />
      <Compile Include="Assets\Script\Core\Utils\UGUITool.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Character\Character.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Character\CharacterManager.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Common\Attr.cs" />
      <Compile Include="Assets\Script\Game\Logic\Common\ModuleBase.cs" />
      <Compile Include="Assets\Script\Game\Logic\LogicMain.cs" />
      <Compile Include="Assets\Script\Game\Logic\Map\MapManager.cs" />
      <Compile Include="Assets\Script\Game\Logic\Message\MessageManager.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_CreateRole.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Condition\ConditionBase.cs" />
