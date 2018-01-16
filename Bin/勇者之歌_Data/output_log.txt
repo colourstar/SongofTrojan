@@ -23,11 +23,11 @@ Platform assembly: K:\01 Project\01 Game\12 SongofTrojan\Bin\勇者之歌_Data\M
 Loading K:\01 Project\01 Game\12 SongofTrojan\Bin\勇者之歌_Data\Managed\Debugger.dll into Unity Child Domain
 Platform assembly: K:\01 Project\01 Game\12 SongofTrojan\Bin\勇者之歌_Data\Managed\System.dll (this message is harmless)
 Platform assembly: K:\01 Project\01 Game\12 SongofTrojan\Bin\勇者之歌_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.016 seconds
+- Completed reload, in  0.017 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.291228 ms
+UnloadTime: 2.466488 ms
 [story] : start,storyname : 开场
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -36,7 +36,23 @@ UnloadTime: 2.291228 ms
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Coroutine couldn't be started because the the game object 'StartWindow' is inactive!
+ 
+(Filename:  Line: 757)
+
+Dialog Window On Clicked
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 [Action_Dialog] : Start : 111111
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Dialog Window On Clicked
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+[Action_EnterMap] : Start : 
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -45,7 +61,7 @@ UnloadTime: 2.291228 ms
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 3260 -> priority: 1 
-  Thread -> id: 296c -> priority: 1 
-  Thread -> id: 2c74 -> priority: 1 
-  Thread -> id: 2c3c -> priority: 1 
+  Thread -> id: 3ab0 -> priority: 1 
+  Thread -> id: 3840 -> priority: 1 
+  Thread -> id: 1ee0 -> priority: 1 
+  Thread -> id: 171c -> priority: 1 
