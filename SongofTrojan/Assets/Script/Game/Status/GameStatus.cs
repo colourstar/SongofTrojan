@@ -14,9 +14,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class GameStatus : IApplicationStatus
 {
-    protected UIWindowBase m_kCurMapScene = null;       // 普通地图界面
-    protected UIWindowBase m_kBigMapScene = null;       // 大地图界面
-    public    LogicMain    m_kLogicMain = null;         // 主逻辑
+    protected NormalMapWindow   m_kCurMapScene = null;       // 普通地图界面
+    protected NormalMapWindow   m_kBigMapScene = null;       // 大地图界面
+    public    LogicMain         m_kLogicMain = null;         // 主逻辑
 
 	public override void OnEnterStatus()
 	{
@@ -102,11 +102,28 @@ public class GameStatus : IApplicationStatus
         // 然后播放场景加载动画
         if (kToMap.MapType == "大地图")
         {
-            
+            if (m_kBigMapScene == null)
+            {
+                m_kBigMapScene = OpenUI<NormalMapWindow>() as NormalMapWindow;
+            }
+            if (m_kCurMapScene != null)
+            {
+                m_kCurMapScene.Hide();
+            }
+
+            m_kBigMapScene.SetBackGround(kToMap.BackPic);
         }
         else if (kToMap.MapType == "城市")
         {
-            
+            if (m_kCurMapScene == null)
+            {
+                m_kCurMapScene = OpenUI<NormalMapWindow>() as NormalMapWindow;
+            }
+            if (m_kBigMapScene != null)
+            {
+                m_kBigMapScene.Hide();
+            }
+            m_kCurMapScene.SetBackGround(kToMap.BackPic);
         }
     }
 

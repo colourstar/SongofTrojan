@@ -37,4 +37,10 @@ public class NormalMapWindow : UIWindowBase
 
         yield return new WaitForEndOfFrame();
     }
+
+    public void SetBackGround(string kPath)
+    {
+        Sprite kSprite = Resources.Load(kPath, typeof(Sprite)) as Sprite;
+        GetImage ("bgback").sprite = kSprite;
+    }
 }

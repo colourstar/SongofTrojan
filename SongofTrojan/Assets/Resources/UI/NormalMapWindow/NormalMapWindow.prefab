@@ -34,9 +34,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224344011143436640}
-  - component: {fileID: 114812219302113892}
-  - component: {fileID: 223934815105522448}
-  - component: {fileID: 114512109018775484}
+  - component: {fileID: 114390945285581420}
+  - component: {fileID: 223765387204383396}
+  - component: {fileID: 114514551560517770}
   m_Layer: 5
   m_Name: NormalMapWindow
   m_TagString: Untagged
@@ -76,7 +76,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114512109018775484
+--- !u!114 &114390945285581420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1850278582606396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5397c571e468e4496d17a1691fc576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_canvas: {fileID: 0}
+  m_objectList:
+  - {fileID: 1963462030069514}
+  m_UIType: 0
+  m_bgMask: {fileID: 1249409410771460}
+  m_uiRoot: {fileID: 1923604207836268}
+--- !u!114 &114514551560517770
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,22 +109,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114812219302113892
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1850278582606396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5397c571e468e4496d17a1691fc576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_canvas: {fileID: 0}
-  m_objectList: []
-  m_UIType: 0
-  m_bgMask: {fileID: 1249409410771460}
-  m_uiRoot: {fileID: 1923604207836268}
 --- !u!114 &114862251482371186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,7 +142,7 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963462030069514}
---- !u!223 &223934815105522448
+--- !u!223 &223765387204383396
 Canvas:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

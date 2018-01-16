@@ -11,7 +11,7 @@ namespace table
 	{
 		
 		
-		Stren = 0, // 力量
+		Power = 0, // 力量
 		
 		
 		Defense = 1, // 防御
@@ -446,10 +446,15 @@ namespace table
                 	break; 
                 	case 0x60004:
                 	{
-						ins.Desc = reader.ReadString();
+						ins.BackPic = reader.ReadString();
                 	}
                 	break; 
                 	case 0x60005:
+                	{
+						ins.Desc = reader.ReadString();
+                	}
+                	break; 
+                	case 0x60006:
                 	{
 						ins.ChildMap = reader.ReadString();
                 	}
@@ -609,6 +614,11 @@ namespace table
 		/// 显示名称
 		/// </summary>
 		public string ShowName = ""; 
+		
+		/// <summary> 
+		/// 背景路径
+		/// </summary>
+		public string BackPic = ""; 
 		
 		/// <summary> 
 		/// 描述

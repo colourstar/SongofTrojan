@@ -208,6 +208,7 @@
      <Compile Include="Assets\Script\Game\Logic\Message\MessageManager.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_CreateRole.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_Dialog.cs" />
+     <Compile Include="Assets\Script\Game\Logic\Story\Action\Action_EnterMap.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Action\ActionBase.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Condition\ConditionBase.cs" />
      <Compile Include="Assets\Script\Game\Logic\Story\Story.cs" />
