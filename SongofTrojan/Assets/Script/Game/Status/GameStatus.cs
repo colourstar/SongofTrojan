@@ -30,7 +30,10 @@ public class GameStatus : IApplicationStatus
 
 	public override void OnUpdate()
 	{
-        m_kLogicMain.Update ();
+		if (m_kLogicMain != null) 
+		{
+			m_kLogicMain.Update ();
+		}
 	}
 
 
@@ -127,6 +130,19 @@ public class GameStatus : IApplicationStatus
         }
     }
 
+	/// <summary>
+	/// 新建游戏
+	/// </summary>
+	public void NewGame()
+	{
+		m_kLogicMain = new LogicMain();
+		// 初始化Logic的配置
+		m_kLogicMain.Init ();
+
+		// 开始逻辑
+		m_kLogicMain.Start ();
+	}
+
     /// <summary>
     /// 保存游戏
     /// </summary>
@@ -147,6 +163,8 @@ public class GameStatus : IApplicationStatus
         FileStream kReadStream = new FileStream(PathTool.GetAbsolutePath(ResLoadLocation.Persistent,"/" + loadfilename), FileMode.Open , FileAccess.Read ,FileShare.Read );
         m_kLogicMain = kFormater.Deserialize(kReadStream) as LogicMain;
         kReadStream.Close();
+		// 开始逻辑
+		m_kLogicMain.Start ();
     }
 
 
