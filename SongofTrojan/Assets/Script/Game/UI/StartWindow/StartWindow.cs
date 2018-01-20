@@ -4,10 +4,13 @@ using System.Collections;
 public class StartWindow : UIWindowBase 
 {
     private float m_iCurrentTime = 0.0f;
+	private Coroutine m_kTextAnim = null;
+	private bool m_bIsActive = true;
     //UI的初始化请放在这里
     public override void OnOpen()
     {
-        StartCoroutine(TextAnim(GetGameObject("Text"), 1, 0));
+		m_bIsActive = true;
+		StartCoroutine(TextAnim(GetGameObject("Text"), 1, 0));
     }
 
     //请在这里写UI的更新逻辑，当该UI监听的事件触发时，该函数会被调用
@@ -25,7 +28,7 @@ public class StartWindow : UIWindowBase
     void OnGUI()
     {
         Event e = Event.current;
-        if (e.isKey)
+		if (e.isKey)
         {
             OnStart();
         }
@@ -45,8 +48,11 @@ public class StartWindow : UIWindowBase
 	// 按键消息接受
 	public void OnStart()
 	{
-		ApplicationStatusManager.GetStatus<StartStatus>().CloseUI<StartWindow>();
-		ApplicationStatusManager.EnterStatus<GameStatus>();
+		m_bIsActive = false;
+		StopCoroutine ("TextAnim");
+
+		ApplicationStatusManager.GetStatus<StartStatus> ().EnterToLobby ();
+		// ApplicationStatusManager.EnterStatus<GameStatus>();
 	}
 
     // 动态效果
@@ -54,9 +60,18 @@ public class StartWindow : UIWindowBase
     {
         AnimSystem.UguiAlpha(gameobject, fromvalue, tovalue, callBack:(object[] obj)=>
             {
-                StartCoroutine(TextAnim(gameobject, tovalue, fromvalue));
+				if (m_bIsActive == true)
+				{
+					StartCoroutine(TextAnim(gameobject, tovalue, fromvalue));
+				}
             });
 
         yield return new WaitForEndOfFrame();
     }
+
+	public override void OnShow()
+	{
+		m_bIsActive = true;
+		StartCoroutine(TextAnim(GetGameObject("Text"), 1, 0));
+	}
 }

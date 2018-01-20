@@ -43,7 +43,7 @@ public class GameStatus : IApplicationStatus
         DialogWindow uiDialog = UIManager.GetUI<DialogWindow>();
         if (uiDialog == null)
         {
-            uiDialog = OpenUI<DialogWindow>();
+			uiDialog = OpenUI<DialogWindow>();
         }
         if (uiDialog.IsShow() == false)
         {

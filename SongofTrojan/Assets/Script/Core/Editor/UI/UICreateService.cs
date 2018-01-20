@@ -237,7 +237,7 @@ public class UICreateService
     public static void CreatUIScript(string UIWindowName)
     {
         string LoadPath = Application.dataPath + "/Script/Core/Editor/res/UIWindowClassTemplate.txt";
-        string SavePath = Application.dataPath + "/Script/UI/" + UIWindowName + "/" + UIWindowName + ".cs";
+        string SavePath = Application.dataPath + "/Script/Game/UI/" + UIWindowName + "/" + UIWindowName + ".cs";
 
         string UItemplate = ResourceIOTool.ReadStringByFile(LoadPath);
         string classContent = UItemplate.Replace("{0}", UIWindowName);
